@@ -1,0 +1,9 @@
+{
+  "name": "AgentSec",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "postCreateCommand": "pip install -r requirements.txt",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {"label": "AgentSec dashboard", "onAutoForward": "openBrowser"}
+  }
+}

@@ -2,6 +2,8 @@
 
 > An analyst-ready security audit console that turns authorized scan evidence into prioritized decisions.
 
+[![CI](https://github.com/louayhm3/agentsec/actions/workflows/ci.yml/badge.svg)](https://github.com/louayhm3/agentsec/actions/workflows/ci.yml) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/louayhm3/agentsec)
+
 AgentSec is a portfolio implementation of an autonomous vulnerability-auditing workflow described in the accompanying academic specification. It demonstrates a complete security data path: request intake, evidence collection, normalization, risk scoring, persistence, and an explainable dashboard.
 
 ![AgentSec dashboard](docs/dashboard.svg)
@@ -20,6 +22,10 @@ Security tools produce valuable evidence, but raw output is difficult to compare
 The included demo mode is deterministic and safe: it uses fixture evidence and never probes a target. Real tool adapters can be added behind the same scanner interface for an authorized Kali/Linux deployment.
 
 ## Run it in two minutes
+
+### GitHub Codespaces
+
+Open the repository in GitHub Codespaces, wait for dependencies to install, then run `python app.py`. Port 3000 is forwarded automatically and the dashboard opens in the browser.
 
 ```bash
 python -m venv .venv
