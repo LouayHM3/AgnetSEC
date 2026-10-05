@@ -1,0 +1,17 @@
+{
+  "name": "AgentSec - Evidence Analysis Pipeline",
+  "description": "Reference workflow for an authorized AgentSec deployment. The default repository mode is safe demo mode.",
+  "nodes": [
+    {"name": "Scan request webhook", "type": "n8n-nodes-base.webhook", "purpose": "Receive target and port configuration"},
+    {"name": "Run authorized collectors", "type": "n8n-nodes-base.executeCommand", "purpose": "Invoke approved scanners in a controlled Linux environment"},
+    {"name": "Normalize evidence", "type": "n8n-nodes-base.code", "purpose": "Map tool output into the AgentSec finding schema"},
+    {"name": "Score and enrich", "type": "n8n-nodes-base.httpRequest", "purpose": "Send normalized evidence to the Flask analysis API"},
+    {"name": "Persist and notify", "type": "n8n-nodes-base.httpRequest", "purpose": "Persist the result and optionally notify the analyst"}
+  ],
+  "connections": [
+    ["Scan request webhook", "Run authorized collectors"],
+    ["Run authorized collectors", "Normalize evidence"],
+    ["Normalize evidence", "Score and enrich"],
+    ["Score and enrich", "Persist and notify"]
+  ]
+}

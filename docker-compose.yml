@@ -1,0 +1,12 @@
+services:
+  agentsec:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      AGENTSEC_DB: /app/data/agentsec.db
+    volumes:
+      - agentsec-data:/app/data
+volumes:
+  agentsec-data:
